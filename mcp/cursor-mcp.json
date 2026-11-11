@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "tarmac": {
+      "command": "npx",
+      "args": ["-y", "@tarmacagent/mcp"],
+      "env": { "TARMAC_URL": "https://your-tarmac-server" }
+    }
+  }
+}

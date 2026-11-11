@@ -1,0 +1,8 @@
+{
+  "name": "tarmac-example-rule-breaker",
+  "private": true,
+  "type": "module",
+  "scripts": { "start": "tsx agent.ts" },
+  "dependencies": { "@tarmacagent/sdk": "^0.1.0" },
+  "devDependencies": { "tsx": "^4.23.0" }
+}

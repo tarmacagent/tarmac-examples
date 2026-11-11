@@ -1,0 +1,8 @@
+{
+  "name": "tarmac-example-careful-agent",
+  "private": true,
+  "type": "module",
+  "scripts": { "start": "tsx agent.ts" },
+  "dependencies": { "@tarmacagent/sdk": "^0.1.0" },
+  "devDependencies": { "tsx": "^4.23.0" }
+}
