@@ -1,0 +1,28 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: TypeScript examples parse
+        run: for f in typescript/*/agent.ts; do node --check "$f"; done
+      - name: Python examples compile
+        run: python -m py_compile python/*/agent.py
+      - name: Python examples import against the published SDK
+        run: |
+          pip install --quiet tarmac-agent
+          python -c "from tarmac_agent import TarmacClient, TarmacTools, run_agent; TarmacClient.from_env"
+      - name: MCP configs are valid JSON
+        run: for f in mcp/*.json; do python -m json.tool "$f" > /dev/null; done

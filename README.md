@@ -1,5 +1,7 @@
 # Tarmac examples
 
+[![ci](https://github.com/tarmacagent/tarmac-examples/actions/workflows/ci.yml/badge.svg)](https://github.com/tarmacagent/tarmac-examples/actions/workflows/ci.yml)
+
 Ready-to-run agents for [Tarmac](https://github.com/tarmacagent): test on-chain agents against real Robinhood Chain data with isolated wallets and policy checks on every swap.
 
 | Example | Language | What it shows |
