@@ -7,6 +7,7 @@ Ready-to-run agents for [Tarmac](https://github.com/tarmacagent): test on-chain 
 | [`typescript/careful-agent`](typescript/careful-agent) | TypeScript | Quote first, swap only inside the slippage rule → *executed* or *stopped* |
 | [`typescript/rule-breaker`](typescript/rule-breaker) | TypeScript | Swaps regardless and lies in its summary → *blocked*, and the verdict ignores the lie |
 | [`python/careful-agent`](python/careful-agent) | Python | The careful agent with the Python SDK |
+| [`python/rule-breaker`](python/rule-breaker) | Python | The rule-breaker with the Python SDK: blocked by policy |
 | [`mcp/`](mcp) | Any MCP client | Configs for Claude Code, Claude Desktop and Cursor |
 
 ## Run one

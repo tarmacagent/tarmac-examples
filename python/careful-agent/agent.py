@@ -1,6 +1,7 @@
 """Run a careful agent against a Tarmac server.
 
-    TARMAC_URL=http://localhost:3000 SCENARIO=swap-thin python examples/quickstart.py
+    pip install -r requirements.txt
+    TARMAC_URL=http://localhost:3000 SCENARIO=swap-thin python agent.py
 
 If the server requires sign-in, create the run in the app ("Your agent") and set
 TARMAC_RUN_ID and TARMAC_RUN_TOKEN instead.
@@ -24,11 +25,11 @@ def my_agent(tools: TarmacTools) -> None:
     tools.finish("swapped" if swap["status"] == "executed" else "stopped")
 
 
-client = TarmacClient(os.environ.get("TARMAC_URL", "http://localhost:3000"))
+client = TarmacClient.from_env()
 if os.environ.get("TARMAC_RUN_ID") and os.environ.get("TARMAC_RUN_TOKEN"):
     out = run_agent(client, my_agent, run_id=os.environ["TARMAC_RUN_ID"], run_token=os.environ["TARMAC_RUN_TOKEN"])
 else:
-    out = run_agent(client, my_agent, scenario=os.environ.get("SCENARIO", "swap-normal"), token=os.environ.get("TOKEN", "WETH"), agent_name="python-quickstart")
+    out = run_agent(client, my_agent, scenario=os.environ.get("SCENARIO", "swap-normal"), token=os.environ.get("TOKEN", "WETH"), agent_name="python-careful-agent")
 
 result = out["run"].get("result") or {}
 print("\nVerdict:", result.get("verdictLabel", out["run"]["status"]))
